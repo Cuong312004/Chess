@@ -1,0 +1,11 @@
+E:\Chess\Caro_Chess\bin\Debug\Caro_Chess.exe.config
+E:\Chess\Caro_Chess\bin\Debug\Caro_Chess.exe
+E:\Chess\Caro_Chess\bin\Debug\Caro_Chess.pdb
+E:\Chess\Caro_Chess\obj\Debug\Caro_Chess.csproj.AssemblyReference.cache
+E:\Chess\Caro_Chess\obj\Debug\Caro_Chess.csproj.SuggestedBindingRedirects.cache
+E:\Chess\Caro_Chess\obj\Debug\Caro_Chess.Caro.resources
+E:\Chess\Caro_Chess\obj\Debug\Caro_Chess.Properties.Resources.resources
+E:\Chess\Caro_Chess\obj\Debug\Caro_Chess.csproj.GenerateResource.cache
+E:\Chess\Caro_Chess\obj\Debug\Caro_Chess.csproj.CoreCompileInputs.cache
+E:\Chess\Caro_Chess\obj\Debug\Caro_Chess.exe
+E:\Chess\Caro_Chess\obj\Debug\Caro_Chess.pdb
