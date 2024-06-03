@@ -50,7 +50,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1191, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1191, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,7 +60,7 @@
             this.newGameToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // newGameToolStripMenuItem
@@ -87,6 +87,7 @@
             this.pnlChessBoard.Name = "pnlChessBoard";
             this.pnlChessBoard.Size = new System.Drawing.Size(760, 629);
             this.pnlChessBoard.TabIndex = 0;
+            this.pnlChessBoard.Visible = false;
             // 
             // panel3
             // 
@@ -109,7 +110,7 @@
             this.btnLAN.Name = "btnLAN";
             this.btnLAN.Size = new System.Drawing.Size(187, 28);
             this.btnLAN.TabIndex = 4;
-            this.btnLAN.Text = "LAN";
+            this.btnLAN.Text = "Connect";
             this.btnLAN.UseVisualStyleBackColor = true;
             this.btnLAN.Click += new System.EventHandler(this.btnLAN_Click);
             // 

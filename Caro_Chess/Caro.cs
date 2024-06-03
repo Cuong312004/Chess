@@ -113,6 +113,7 @@ namespace Caro_Chess
         {
             socket.IP = txbIP.Text;
             btnLAN.Enabled = false;
+            pnlChessBoard.Visible = true;
             if (!socket.ConnectServer())
             {
                 socket.isServer = true;
