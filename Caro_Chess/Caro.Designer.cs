@@ -1,4 +1,6 @@
-﻿namespace Caro_Chess
+﻿using System.Drawing;
+
+namespace Caro_Chess
 {
     partial class Caro
     {
@@ -34,10 +36,11 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlChessBoard = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnLAN = new System.Windows.Forms.Button();
+            this.btnPlay = new System.Windows.Forms.Button();
             this.txbIP = new System.Windows.Forms.TextBox();
             this.pctbMark = new System.Windows.Forms.PictureBox();
             this.txbPlayerName = new System.Windows.Forms.TextBox();
+            this.txbIP2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctbMark)).BeginInit();
@@ -50,7 +53,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1191, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1191, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,7 +63,7 @@
             this.newGameToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // newGameToolStripMenuItem
@@ -81,8 +84,9 @@
             // 
             // pnlChessBoard
             // 
+            this.pnlChessBoard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlChessBoard.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlChessBoard.Location = new System.Drawing.Point(13, 34);
+            this.pnlChessBoard.Location = new System.Drawing.Point(204, 34);
             this.pnlChessBoard.Margin = new System.Windows.Forms.Padding(4);
             this.pnlChessBoard.Name = "pnlChessBoard";
             this.pnlChessBoard.Size = new System.Drawing.Size(760, 629);
@@ -91,66 +95,83 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel3.Controls.Add(this.btnLAN);
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.btnPlay);
             this.panel3.Controls.Add(this.txbIP);
-            this.panel3.Controls.Add(this.pctbMark);
-            this.panel3.Controls.Add(this.txbPlayerName);
-            this.panel3.Location = new System.Drawing.Point(816, 353);
+            this.panel3.Location = new System.Drawing.Point(587, 366);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(359, 263);
+            this.panel3.Size = new System.Drawing.Size(284, 178);
             this.panel3.TabIndex = 2;
             // 
-            // btnLAN
+            // btnPlay
             // 
-            this.btnLAN.Location = new System.Drawing.Point(4, 87);
-            this.btnLAN.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLAN.Name = "btnLAN";
-            this.btnLAN.Size = new System.Drawing.Size(187, 28);
-            this.btnLAN.TabIndex = 4;
-            this.btnLAN.Text = "Connect";
-            this.btnLAN.UseVisualStyleBackColor = true;
-            this.btnLAN.Click += new System.EventHandler(this.btnLAN_Click);
+            this.btnPlay.BackColor = System.Drawing.Color.Orchid;
+            this.btnPlay.Location = new System.Drawing.Point(44, 110);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(215, 45);
+            this.btnPlay.TabIndex = 4;
+            this.btnPlay.Text = "Play";
+            this.btnPlay.UseVisualStyleBackColor = false;
+            this.btnPlay.Click += new System.EventHandler(this.btnLAN_Click);
             // 
             // txbIP
             // 
-            this.txbIP.Location = new System.Drawing.Point(4, 46);
+            this.txbIP.Location = new System.Drawing.Point(44, 57);
             this.txbIP.Margin = new System.Windows.Forms.Padding(4);
             this.txbIP.Name = "txbIP";
-            this.txbIP.Size = new System.Drawing.Size(185, 22);
+            this.txbIP.Size = new System.Drawing.Size(215, 22);
             this.txbIP.TabIndex = 3;
             this.txbIP.Text = "127.0.0.1";
             // 
             // pctbMark
             // 
-            this.pctbMark.BackColor = System.Drawing.SystemColors.Control;
-            this.pctbMark.Location = new System.Drawing.Point(199, 4);
+            this.pctbMark.BackColor = System.Drawing.Color.MidnightBlue;
+            this.pctbMark.Location = new System.Drawing.Point(1035, 134);
             this.pctbMark.Margin = new System.Windows.Forms.Padding(4);
             this.pctbMark.Name = "pctbMark";
             this.pctbMark.Size = new System.Drawing.Size(156, 128);
             this.pctbMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctbMark.TabIndex = 2;
             this.pctbMark.TabStop = false;
+            this.pctbMark.Visible = false;
             // 
             // txbPlayerName
             // 
-            this.txbPlayerName.Location = new System.Drawing.Point(4, 4);
+            this.txbPlayerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbPlayerName.Location = new System.Drawing.Point(993, 34);
             this.txbPlayerName.Margin = new System.Windows.Forms.Padding(4);
             this.txbPlayerName.Name = "txbPlayerName";
-            this.txbPlayerName.ReadOnly = true;
             this.txbPlayerName.Size = new System.Drawing.Size(185, 22);
             this.txbPlayerName.TabIndex = 0;
+            this.txbPlayerName.Visible = false;
+            // 
+            // txbIP2
+            // 
+            this.txbIP2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbIP2.Location = new System.Drawing.Point(993, 74);
+            this.txbIP2.Margin = new System.Windows.Forms.Padding(4);
+            this.txbIP2.Name = "txbIP2";
+            this.txbIP2.Size = new System.Drawing.Size(185, 22);
+            this.txbIP2.TabIndex = 4;
+            this.txbIP2.Visible = false;
             // 
             // Caro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Caro_Chess.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1191, 676);
+            this.Controls.Add(this.txbIP2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.txbPlayerName);
             this.Controls.Add(this.pnlChessBoard);
+            this.Controls.Add(this.pctbMark);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Caro";
@@ -175,10 +196,11 @@
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.Panel pnlChessBoard;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnLAN;
+        private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.TextBox txbIP;
         private System.Windows.Forms.PictureBox pctbMark;
         private System.Windows.Forms.TextBox txbPlayerName;
+        private System.Windows.Forms.TextBox txbIP2;
     }
 }
 

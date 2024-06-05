@@ -53,7 +53,7 @@ namespace Caro_Chess
 
 
         public string IP = "127.0.0.1";
-        public int PORT = 9999;
+        public int PORT = 2302;
         public const int BUFFER = 1024;
         public bool isServer = true;
 

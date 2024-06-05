@@ -47,8 +47,8 @@ namespace Caro_Chess
         SEND_POINT,
         NOTIFY,
         NEW_GAME,
-        UNDO,
         END_GAME,
-        QUIT
+        QUIT,
+        CONNECT
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -95,13 +96,25 @@ namespace Caro_Chess
             this.ChessBoard = chessBoard;
             this.PlayerName = playerName;
             this.PlayerMark = mark;
+
             this.player = new List<Player>()
             {
-                new Player("Player1", Image.FromFile(Application.StartupPath + "\\Resources\\O.png")),
-                new Player("Player2", Image.FromFile(Application.StartupPath + "\\Resources\\X.png"))
+                new Player("Player1", Image.FromFile(Application.StartupPath + "\\Resources\\O_icon_.png")),
+                new Player("Player2", Image.FromFile(Application.StartupPath + "\\Resources\\X_icon_.png"))
             };
+       
 
         }
+
+        public void CreatPlayer(TextBox playerName)
+        {
+            this.player = new List<Player>()
+            {
+                new Player(playerName.Text, Image.FromFile(Application.StartupPath + "\\Resources\\O.png")),
+                new Player("Player2", Image.FromFile(Application.StartupPath + "\\Resources\\X.png"))
+            };
+        }
+
         public void DrawChessBoard()
         {
             ChessBoard.Enabled = true;
@@ -125,6 +138,7 @@ namespace Caro_Chess
                         Height = Constraint.CHESS_HEIGHT,
                         Location = new Point(oldButton.Location.X + oldButton.Width, oldButton.Location.Y),
                         BackgroundImageLayout = ImageLayout.Stretch,
+                        BackColor = Color.MidnightBlue,
                         Tag = i.ToString()
                     };
 
@@ -151,15 +165,21 @@ namespace Caro_Chess
             PlayTimeLine.Push(new PlayInfo(GetChessPoint(btn), CurrentPlayer));
 
             CurrentPlayer = CurrentPlayer == 1 ? 0 : 1;
-            ChangePlayer();
 
+            int cur = 0;
             if (playerMarked != null)
                 playerMarked(this, new ButtonClickEvent(GetChessPoint(btn)));
             if (isEndGame(btn))
             {
                 EndGame();
                 ChessBoard.Enabled = false;
+                if (currentPlayer == 0)
+                    cur = 2;
+                else
+                    cur = 1;
+                MessageBox.Show("Player"+ cur + " là người chiến thắng");
             }
+            ChangePlayer();
         }
 
         public void OtherPlayerMark(Point point)
@@ -189,7 +209,7 @@ namespace Caro_Chess
 
         private bool isEndGame(Button btn)
         {
-            return isEndHorizontal(btn) || isEndVertical(btn) || isEndPrimary(btn) || isEndSub(btn);
+            return CheckHorizontal(btn) || CheckVertical(btn) || CheckPrimaryDiagonal(btn) || CheckSubDiagonal(btn);
         }
         private Point GetChessPoint(Button btn)
         {
@@ -200,7 +220,7 @@ namespace Caro_Chess
 
             return point;
         }
-        private bool isEndHorizontal(Button btn)
+        private bool CheckHorizontal(Button btn)
         {
             Point point = GetChessPoint(btn);
 
@@ -228,7 +248,7 @@ namespace Caro_Chess
 
             return countLeft + countRight == 5;
         }
-        private bool isEndVertical(Button btn)
+        private bool CheckVertical(Button btn)
         {
             Point point = GetChessPoint(btn);
 
@@ -256,7 +276,7 @@ namespace Caro_Chess
 
             return countTop + countBottom == 5;
         }
-        private bool isEndPrimary(Button btn)
+        private bool CheckPrimaryDiagonal(Button btn)
         {
             Point point = GetChessPoint(btn);
 
@@ -290,7 +310,7 @@ namespace Caro_Chess
 
             return countTop + countBottom == 5;
         }
-        private bool isEndSub(Button btn)
+        private bool CheckSubDiagonal(Button btn)
         {
             Point point = GetChessPoint(btn);
 
@@ -329,9 +349,9 @@ namespace Caro_Chess
         {
             btn.BackgroundImage = player[CurrentPlayer].Mark;
         }
-        private void ChangePlayer()
+        public void ChangePlayer()
         {
-            PlayerName.Text = player[CurrentPlayer].Name;
+            PlayerName.Text = player[CurrentPlayer].Name + " TURN";
 
             PlayerMark.Image = player[CurrentPlayer].Mark;
         }

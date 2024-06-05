@@ -31,8 +31,8 @@ namespace Caro_Chess
         }
         void EndGame()
         {
+            
             pnlChessBoard.Enabled = false;
-            MessageBox.Show("Kết thúc");
         }
         void NewGame()
         { 
@@ -46,6 +46,7 @@ namespace Caro_Chess
 
         void ChessBoard_PlayerMarked(object sender, ButtonClickEvent e)
         {
+            
             pnlChessBoard.Enabled = false;
 
             socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", e.ClickedPoint));
@@ -85,10 +86,12 @@ namespace Caro_Chess
         private void Caro_Shown(object sender, EventArgs e)
         {
             txbIP.Text = socket.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
+            txbIP2.Text = socket.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
 
             if (string.IsNullOrEmpty(txbIP.Text))
             {
                 txbIP.Text = socket.GetLocalIPv4(NetworkInterfaceType.Ethernet);
+                txbIP2.Text = txbIP.Text;
             }
         }
         void Listen()
@@ -98,7 +101,6 @@ namespace Caro_Chess
                 try
                 {
                     SocketData data = (SocketData)socket.Receive();
-
                     ProcessData(data);
                 }
                 catch (Exception e)
@@ -112,8 +114,13 @@ namespace Caro_Chess
         private void btnLAN_Click(object sender, EventArgs e)
         {
             socket.IP = txbIP.Text;
-            btnLAN.Enabled = false;
+            btnPlay.Enabled = false;
+            txbPlayerName.Visible = true;
+            txbIP2.Visible = true;
+            panel3.Visible = false;
             pnlChessBoard.Visible = true;
+
+            
             if (!socket.ConnectServer())
             {
                 socket.isServer = true;
@@ -146,8 +153,6 @@ namespace Caro_Chess
                         pnlChessBoard.Enabled = true;
                         ChessBoard.OtherPlayerMark(data.Point);
                     break;
-                case (int)SocketCommand.UNDO:
-                    break;
                 case (int)SocketCommand.END_GAME:
                     break;
                 case (int)SocketCommand.QUIT:
@@ -178,5 +183,7 @@ namespace Caro_Chess
                 e.Graphics.FillRectangle(brush, panel.ClientRectangle);
             };
         }
+
+
     }
 }
