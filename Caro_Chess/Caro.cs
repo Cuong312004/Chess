@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Caro_Chess
 {
@@ -23,6 +24,7 @@ namespace Caro_Chess
             ChessBoard = new Chess_Board_Manager(pnlChessBoard, txbPlayerName, pctbMark);
             ChessBoard.EndedGame += ChessBoard_EndedGame;
             ChessBoard.PlayerMarked += ChessBoard_PlayerMarked;
+
 
             NewGame();
             socket = new SocketManager();
@@ -117,6 +119,7 @@ namespace Caro_Chess
             btnPlay.Enabled = false;
             txbPlayerName.Visible = true;
             txbIP2.Visible = true;
+            txbConnect.Visible = true;
             panel3.Visible = false;
             pnlChessBoard.Visible = true;
 
@@ -131,6 +134,8 @@ namespace Caro_Chess
             {
                 socket.isServer = false;
                 pnlChessBoard.Enabled = false;
+                socket.Send(new SocketData((int)SocketCommand.CONNECT, "Người chơi đã kết nối", new Point()));
+                txbConnect.Text = "Đã kết nối";
                 Listen();
             }
         }
@@ -156,9 +161,12 @@ namespace Caro_Chess
                 case (int)SocketCommand.END_GAME:
                     break;
                 case (int)SocketCommand.QUIT:
-                    MessageBox.Show("Đối phương đã thoát");
+                    txbConnect.Text = "Đối phương đã thoát";
                     break;
-                default:
+                case (int)SocketCommand.CONNECT:
+                    txbConnect.Text = data.Message;
+                    break;
+                       default:
                     break;
             }
 
@@ -185,5 +193,14 @@ namespace Caro_Chess
         }
 
 
+        private void Caro_Load(object sender, EventArgs e)
+        {
+            Listen();
+        }
+
+        private void Caro_MouseClick(object sender, MouseEventArgs e)
+        {
+            Listen();
+        }
     }
 }

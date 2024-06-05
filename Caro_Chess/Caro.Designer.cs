@@ -41,6 +41,7 @@ namespace Caro_Chess
             this.pctbMark = new System.Windows.Forms.PictureBox();
             this.txbPlayerName = new System.Windows.Forms.TextBox();
             this.txbIP2 = new System.Windows.Forms.TextBox();
+            this.txbConnect = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctbMark)).BeginInit();
@@ -53,7 +54,7 @@ namespace Caro_Chess
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1191, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1191, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -63,7 +64,7 @@ namespace Caro_Chess
             this.newGameToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // newGameToolStripMenuItem
@@ -129,7 +130,7 @@ namespace Caro_Chess
             // pctbMark
             // 
             this.pctbMark.BackColor = System.Drawing.Color.MidnightBlue;
-            this.pctbMark.Location = new System.Drawing.Point(1035, 134);
+            this.pctbMark.Location = new System.Drawing.Point(1035, 157);
             this.pctbMark.Margin = new System.Windows.Forms.Padding(4);
             this.pctbMark.Name = "pctbMark";
             this.pctbMark.Size = new System.Drawing.Size(156, 128);
@@ -141,9 +142,11 @@ namespace Caro_Chess
             // txbPlayerName
             // 
             this.txbPlayerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbPlayerName.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txbPlayerName.Location = new System.Drawing.Point(993, 34);
             this.txbPlayerName.Margin = new System.Windows.Forms.Padding(4);
             this.txbPlayerName.Name = "txbPlayerName";
+            this.txbPlayerName.ReadOnly = true;
             this.txbPlayerName.Size = new System.Drawing.Size(185, 22);
             this.txbPlayerName.TabIndex = 0;
             this.txbPlayerName.Visible = false;
@@ -151,12 +154,26 @@ namespace Caro_Chess
             // txbIP2
             // 
             this.txbIP2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbIP2.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txbIP2.Location = new System.Drawing.Point(993, 74);
             this.txbIP2.Margin = new System.Windows.Forms.Padding(4);
             this.txbIP2.Name = "txbIP2";
+            this.txbIP2.ReadOnly = true;
             this.txbIP2.Size = new System.Drawing.Size(185, 22);
             this.txbIP2.TabIndex = 4;
             this.txbIP2.Visible = false;
+            // 
+            // txbConnect
+            // 
+            this.txbConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbConnect.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txbConnect.Location = new System.Drawing.Point(993, 116);
+            this.txbConnect.Margin = new System.Windows.Forms.Padding(4);
+            this.txbConnect.Name = "txbConnect";
+            this.txbConnect.ReadOnly = true;
+            this.txbConnect.Size = new System.Drawing.Size(185, 22);
+            this.txbConnect.TabIndex = 6;
+            this.txbConnect.Visible = false;
             // 
             // Caro
             // 
@@ -165,6 +182,7 @@ namespace Caro_Chess
             this.BackgroundImage = global::Caro_Chess.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1191, 676);
+            this.Controls.Add(this.txbConnect);
             this.Controls.Add(this.txbIP2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.txbPlayerName);
@@ -177,7 +195,9 @@ namespace Caro_Chess
             this.Name = "Caro";
             this.Text = "Game Caro LAN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Caro_FormClosing);
+            this.Load += new System.EventHandler(this.Caro_Load);
             this.Shown += new System.EventHandler(this.Caro_Shown);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Caro_MouseClick);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -201,6 +221,7 @@ namespace Caro_Chess
         private System.Windows.Forms.PictureBox pctbMark;
         private System.Windows.Forms.TextBox txbPlayerName;
         private System.Windows.Forms.TextBox txbIP2;
+        private System.Windows.Forms.TextBox txbConnect;
     }
 }
 
