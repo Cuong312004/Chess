@@ -28,14 +28,14 @@ A LAN-based **Caro Chess (Gomoku)** game built using **Windows Forms** in **C#**
 ---
 
 ## 📦 Project Structure
-
+```
 Caro_Chess/
 ├── Caro.cs # Main form, handles UI and game logic
 ├── Chess_Board_Manager.cs # Game board rendering and state
 ├── SocketManager.cs # Manages TCP communication
 ├── SocketData.cs # Custom message protocol (command, message, point)
 └── Resources/
-
+```
 
 
 ---
