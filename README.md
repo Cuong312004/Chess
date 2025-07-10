@@ -29,8 +29,7 @@ A LAN-based **Caro Chess (Gomoku)** game built using **Windows Forms** in **C#**
 
 ## 📦 Project Structure
 
-/Caro_Chess
-│
+Caro_Chess/
 ├── Caro.cs # Main form, handles UI and game logic
 ├── Chess_Board_Manager.cs # Game board rendering and state
 ├── SocketManager.cs # Manages TCP communication
@@ -53,7 +52,9 @@ A LAN-based **Caro Chess (Gomoku)** game built using **Windows Forms** in **C#**
 ---
 
 ## 📸 Screenshot
+![System Architecture](https://github.com/Cuong312004/Chess/blob/main/Screenshot%202025-07-10%20212033.png)
 
+![System Architecture](https://github.com/Cuong312004/Chess/blob/main/Screenshot%202025-07-10%20212135.png)
 
 ---
 
